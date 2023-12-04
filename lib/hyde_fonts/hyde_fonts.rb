@@ -29,7 +29,7 @@ module Jekyll
 
       if @style == 'inline'
         file.file_contents
-      elseif @style == 'link'
+      elsif @style == 'link'
         "<link href='" + file.relative_path + "' rel='stylesheet'>"
       elsif @style == 'decap-config'
           [
