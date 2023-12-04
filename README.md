@@ -39,6 +39,57 @@ Adding `inline` to the liquid tag will render the css that would have been in th
 </style>
 ```
 
+4. [Optional] Decap CMS
+
+If you use Decap CMS, you can use the property `decap-config [levels-of-indent]`.
+This will output yml formatted configuration that matches the fonts data file.
+
+```yaml
+# note that the top of the file needs frontmatter boundaries to
+# process the file through Jekyll
+---
+---
+
+...
+collections:
+  {% hyde_fonts decap-config 1 %}
+  ...
+```
+
+which will render as
+
+```yaml
+collections:
+  # Hyde Fonts ---
+  - label: Hyde-Fonts
+    name: fonts
+    file: "src/_data/fonts.yml"
+    fields:
+      - label: Fonts
+        name: fonts
+        widget: object
+        fields:
+          - label: Faces
+            name: faces
+            widget: list
+            collapsed: false
+            create: true
+            fields:
+              - label: Name
+                name: name
+                widget: string
+              - label: Weights
+                name: weights
+                widget: list
+                collapsed: false
+                fields:
+                  - label: Weight
+                    name: value
+                    widget: string
+                  - label: Italic
+                    name: italic
+                    widget: boolean
+```
 
 Configuration
 -------------

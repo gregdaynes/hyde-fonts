@@ -13,7 +13,9 @@ module Jekyll
       super
 
       @tag_name = tag_name
-      @text = text.strip
+      style, indent = text.strip.split(' ')
+      @style = style.strip
+      @indent = indent.to_i || 0
       @tokens = tokens
     end
 
@@ -25,10 +27,44 @@ module Jekyll
         file.is_a?(Hyde::GeneratedCssFile)
       }
 
-      if @text == 'inline'
+      if @style == 'inline'
         file.file_contents
-      else
+      elseif @style == 'link'
         "<link href='" + file.relative_path + "' rel='stylesheet'>"
+      elsif @style == 'decap-config'
+          [
+            "- label: Hyde-Fonts",
+            "  name: fonts",
+            "  file: \"src/_data/fonts.yml\"",
+            "  fields:",
+            "    - label: Fonts",
+            "      name: fonts",
+            "      widget: object",
+            "      fields:",
+            "        - label: Faces",
+            "          name: faces",
+            "          widget: list",
+            "          collapsed: false",
+            "          create: true",
+            "          fields:",
+            "            - label: Name",
+            "              name: name",
+            "              widget: string",
+            "            - label: Weights",
+            "              name: weights",
+            "              widget: list",
+            "              collapsed: false",
+            "              fields:",
+            "                - label: Weight",
+            "                  name: value",
+            "                  widget: string",
+            "                - label: Italic",
+            "                  name: italic",
+            "                  widget: boolean",
+          ]
+            .map { |x| x.prepend(' ' * 6) }
+            .join("\n")
+            .prepend("# Hyde Fonts ---\n")
       end
     end
   end
