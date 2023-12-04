@@ -63,7 +63,7 @@ collections:
   # Hyde Fonts ---
   - label: Hyde-Fonts
     name: fonts
-    file: "src/_data/fonts.yml"
+    file: "_data/fonts.yml"
     fields:
       - label: Fonts
         name: fonts
