@@ -1,0 +1,22 @@
+---
+---
+backend:
+  name: github
+  repo: gregdaynes/hyde_fonts # github path to repo
+  branch: main # Branch to update (optional; defaults to master)
+
+local_backend: true
+
+publish_mode: editorial_workflow
+
+# Media files will be stored in the repo under images/uploads
+media_folder: "src/images/uploads"
+
+# The src attribute for uploaded media will begin with /images/uploads
+public_folder: "/images/uploads"
+
+collections:
+  - label: Settings
+    name: settings
+    files:
+      {% hyde_fonts decap-config 3 %}

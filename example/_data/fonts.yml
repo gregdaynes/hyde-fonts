@@ -1,0 +1,32 @@
+fonts:
+  faces:
+    - name: Montserrat
+      provider: google
+      weights:
+        - value: 200
+          italic: false
+        - value: 200
+          italic: true
+        - value: 400
+          italic: false
+        - value: 400
+          italic: true
+        - value: 600
+          italic: false
+        - value: 800
+          italic: false
+    - name: Roboto
+      provider: google
+      weights:
+        - value: 200
+          italic: false
+        - value: 200
+          italic: true
+        - value: 400
+          italic: false
+        - value: 400
+          italic: true
+        - value: 600
+          italic: false
+        - value: 800
+          italic: false
