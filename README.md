@@ -9,7 +9,7 @@ Installation
 
 1. Add Hyde Fonts to your Gemfile
 
-`gem 'hyde-fonts', '~> 0.2.2'`
+`gem 'hyde-fonts', '~> 0.3.0'`
 
 2. Add entry to your Jekyll config under plugins
 
@@ -97,15 +97,38 @@ Configuration
 Hyde Fonts comes with the following configuration. Override as necessary in your Jekyll Config
 
 ```yaml
+# Default Configuration
+
 hyde_fonts:
-  data_path: fonts
+  data_source_name: fonts
   file_output_path: assets/fonts
   css_output_name: fonts.css
   css_minify: true
   enable: true
   fetch_fonts: true
-  keep_files: false
+  keep_files: true
 ```
+
+`data_source_name`
+: name of the data object in `site.config.data` when generating. This is usually the filename without extension.
+
+`file_output_path`
+: relative path from the root of your generated site to the location of the generated css files.
+
+`css_output_name`
+: filename to save font css as.
+
+`css_minify`
+: minify the css generated (reuses Jekyll's SASS compiler)
+
+`enable`
+: will download fonts and generate the css files when enabled, otherwise will skip the process at build time
+
+`fetch_fonts`
+: download fonts that don't exist locally
+
+`keep_files`
+: will not delete files between builds, and will reuse existing files if they match.
 
 Create a font manifest in `_data/fonts.yml` which will be used to fetch the desired fonts.
 
