@@ -86,7 +86,7 @@ module Hyde
       "css_minify" => true,
       "enable" => true,
       "fetch_fonts" => true,
-      "keep_files" => false
+      "keep_files" => true
     }
 
     def initialize(site)
