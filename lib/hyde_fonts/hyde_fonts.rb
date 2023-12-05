@@ -20,7 +20,7 @@ module Jekyll
     end
 
     def render(context)
-      return context.registers[:site].config['hyde_fonts']['enable'] == true
+      return unless context.registers[:site].config['hyde_fonts']['enable'] == true
 
       file = context.registers[:site].static_files.find { |file|
         file.is_a?(Hyde::GeneratedCssFile)
