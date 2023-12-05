@@ -81,7 +81,7 @@ end
 module Hyde
   class Fonts
     @@config = {
-      "data_path" => 'fonts',
+      "data_source_name" => 'fonts',
       "file_output_path" => 'assets/fonts',
       "css_output_name" => 'fonts.css',
       "css_minify" => true,
@@ -135,7 +135,7 @@ module Hyde
     end
 
     def data
-      @site.data.dig(config('data_path'), 'fonts')
+      @site.data.dig(config('data_source_name'), 'fonts')
     end
 
     def minify(css)
