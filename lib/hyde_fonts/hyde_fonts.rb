@@ -92,7 +92,12 @@ module Hyde
 
     def initialize(site)
       @site = site
-      @config = site.config.dig('hyde_fonts') || @@config
+      @config = site.config.dig('hyde_fonts')
+
+      if (@config.nil?)
+        @config = @@config
+        site.config['hyde_fonts'] = @config
+      end
 
       if config('keep_files') == true
         @site.config['keep_files'].push(config('file_output_path'))
