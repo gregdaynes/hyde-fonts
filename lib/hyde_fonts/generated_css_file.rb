@@ -4,7 +4,7 @@ module Hyde
 
   class GeneratedCssFile < Jekyll::StaticFile
     attr_accessor :file_contents
-    attr_reader :generator, :x
+    attr_reader :generator
 
     def initialize(site, dir, name)
       @site = site
