@@ -109,6 +109,8 @@ module Hyde
 
       # handle font providers
       for face in font_data.faces
+        Jekyll.logger.info('Fonts:', "Preparing #{face.name}")
+
         case face.provider
         when 'google'
           Hyde::FontProviderGoogle.new(@site, @config).fetch(face)

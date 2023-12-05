@@ -55,9 +55,16 @@ module Hyde
       destination_fname = file.destination('./')
 
       if @config['keep_files'] == true
+        Jekyll.logger.debug('Fonts:', "file #{filename} already exists.")
         return if File.exist?(destination_fname)
       end
 
+      if @config['fetch_fonts'] == false
+        Jekyll.logger.warn('Fonts:', "fetch disabled, no local version of #{filename} found.")
+        return
+      end
+
+      Jekyll.logger.debug('Fonts:', "downloading #{@face.name} from #{@face.provider}")
       font_uri_payload = Net::HTTP.get(ruleset.uri)
       file.file_contents = font_uri_payload
 

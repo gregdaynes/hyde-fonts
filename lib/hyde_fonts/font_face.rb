@@ -1,6 +1,6 @@
 module Hyde
   class FontFace
-    attr_reader :provider
+    attr_reader :provider, :name
     attr_accessor :css
 
     def initialize(face)
