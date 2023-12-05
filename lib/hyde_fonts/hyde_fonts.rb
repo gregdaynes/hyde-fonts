@@ -20,8 +20,7 @@ module Jekyll
     end
 
     def render(context)
-      config = context.registers[:site].config['hyde_fonts']
-      return unless config['enable'] == true
+      return context.registers[:site].config['hyde_fonts']['enable'] == true
 
       file = context.registers[:site].static_files.find { |file|
         file.is_a?(Hyde::GeneratedCssFile)
@@ -109,6 +108,7 @@ module Hyde
     end
 
     def generate
+      return unless config('enable') == true
       # get faces from jekyll data file
       font_data = Hyde::FontData.new(data)
 
