@@ -7,9 +7,9 @@ A Jekyll 4 plugin for loading Google Fonts from a manifest
 Installation
 ------------
 
-1. Add hyde_fonts to your Gemfile
+1. Add Hyde Fonts to your Gemfile
 
-`gem 'hyde-fonts', '~> 0.1.0'`
+`gem 'hyde-fonts', '~> 0.2.2'`
 
 2. Add entry to your Jekyll config under plugins
 
