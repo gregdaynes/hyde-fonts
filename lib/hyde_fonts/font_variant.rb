@@ -12,7 +12,7 @@ module Hyde
     end
 
     def to_s
-      @italic.to_s + ',' + @weight.to_s
+      @italic.to_s + "," + @weight.to_s
     end
   end
 end

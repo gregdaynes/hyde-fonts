@@ -4,9 +4,9 @@ module Hyde
     attr_accessor :css
 
     def initialize(face)
-      @name = face['name']
-      @provider = face['provider']
-      @weights = face['weights']
+      @name = face["name"]
+      @provider = face["provider"]
+      @weights = face["weights"]
       @variants = parse_variants
       @css = []
     end
@@ -20,19 +20,19 @@ module Hyde
     def to_s
       variants = sort_variants.map { |variant| variant.to_s }
 
-      @name + ':ital,wght@' + variants.join(';')
+      @name + ":ital,wght@" + variants.join(";")
     end
 
-  private
+    private
 
     def parse_variants
       variants = []
 
       for variant in @weights
-        variants.push(Hyde::FontVariant.new(weight: variant['value'], italic: variant['italic']))
+        variants.push(Hyde::FontVariant.new(weight: variant["value"], italic: variant["italic"]))
       end
 
-      return variants
+      variants
     end
   end
 end

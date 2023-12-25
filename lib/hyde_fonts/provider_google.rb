@@ -1,5 +1,5 @@
-require 'uri'
-require 'net/http'
+require "uri"
+require "net/http"
 
 module Hyde
   class FontProviderGoogle
@@ -13,10 +13,10 @@ module Hyde
 
       begin
         uri_payload = Net::HTTP.get(face_uri, {
-          "User-Agent": 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10.15; rv:109.0) Gecko/20100101 Firefox/117.0'
+          "User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10.15; rv:109.0) Gecko/20100101 Firefox/117.0"
         })
       rescue
-        Jekyll.logger.warn('Fonts Warning:', 'Unable to reach Google Fonts service.')
+        Jekyll.logger.warn("Fonts Warning:", "Unable to reach Google Fonts service.")
         return
       end
 
@@ -30,14 +30,14 @@ module Hyde
       end
     end
 
-  private
+    private
 
     def face_uri
-      google_uri_base = 'https://fonts.googleapis.com/css2'
-      params = [['display', 'swap']]
-      params.push(['family', @face.to_s])
+      google_uri_base = "https://fonts.googleapis.com/css2"
+      params = [["display", "swap"]]
+      params.push(["family", @face.to_s])
 
-      uri = google_uri_base + '?' + params.map { |param| param.join('=') }.join('&')
+      uri = google_uri_base + "?" + params.map { |param| param.join("=") }.join("&")
 
       URI(uri)
     end
@@ -50,21 +50,21 @@ module Hyde
 
     def fetch_font_from_ruleset(ruleset)
       filename = ruleset.filename
-      file = Hyde::GeneratedFontFile.new(@site, @config['file_output_path'], filename)
+      file = Hyde::GeneratedFontFile.new(@site, @config["file_output_path"], filename)
 
-      destination_fname = file.destination('./')
+      destination_fname = file.destination("./")
 
-      if @config['keep_files'] == true
-        Jekyll.logger.debug('Fonts:', "file #{filename} already exists.")
+      if @config["keep_files"] == true
+        Jekyll.logger.debug("Fonts:", "file #{filename} already exists.")
         return if File.exist?(destination_fname)
       end
 
-      if @config['fetch_fonts'] == false
-        Jekyll.logger.warn('Fonts:', "fetch disabled, no local version of #{filename} found.")
+      if @config["fetch_fonts"] == false
+        Jekyll.logger.warn("Fonts:", "fetch disabled, no local version of #{filename} found.")
         return
       end
 
-      Jekyll.logger.debug('Fonts:', "downloading #{@face.name} from #{@face.provider}")
+      Jekyll.logger.debug("Fonts:", "downloading #{@face.name} from #{@face.provider}")
       font_uri_payload = Net::HTTP.get(ruleset.uri)
       file.file_contents = font_uri_payload
 
@@ -72,7 +72,7 @@ module Hyde
     end
 
     def rewrite_ruleset_to_local(ruleset)
-      ruleset.local_ruleset(@config['file_output_path'])
+      ruleset.local_ruleset(@config["file_output_path"])
     end
   end
 end

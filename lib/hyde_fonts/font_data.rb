@@ -13,12 +13,11 @@ module Hyde
     end
 
     def parse_faces
-
-      for face in @data['faces'] do
+      for face in @data["faces"] do
         faces.push(Hyde::FontFace.new(face))
       end
 
-      return faces
+      faces
     end
   end
 end

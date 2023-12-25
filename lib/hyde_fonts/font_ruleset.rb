@@ -18,11 +18,11 @@ module Hyde
       @uri = URI(uri)
       @format = format
 
-      @filename = [@family, @style, @weight, @char_set + '.' + @format].join('_')
+      @filename = [@family, @style, @weight, @char_set + "." + @format].join("_")
     end
 
     def local_ruleset(path)
-      @ruleset.gsub(/(?<=url\().*(?=\)\s)/, '/' + File.join(path, @filename))
+      @ruleset.gsub(/(?<=url\().*(?=\)\s)/, "/" + File.join(path, @filename))
     end
   end
 end

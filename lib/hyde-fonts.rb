@@ -4,5 +4,4 @@ module Hyde
   end
 end
 
-require_relative './hyde_fonts/hyde_fonts.rb'
-
+require_relative "hyde_fonts/hyde_fonts"
