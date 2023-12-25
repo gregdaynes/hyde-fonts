@@ -5,6 +5,6 @@
 layout: default
 ---
 
-{% hyde_fonts link %}
+<h1>Montserrat</h1>
 
-{% hyde_fonts inline %}
+<h2>Roboto</h2>
