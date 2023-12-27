@@ -9,7 +9,7 @@ Installation
 
 1. Add Hyde Fonts to your Gemfile
 
-`gem 'hyde-fonts', '~> 0.3.0'`
+`gem 'hyde-fonts', '~> 0.3.3'`
 
 2. Add entry to your Jekyll config under plugins
 
@@ -22,7 +22,7 @@ plugins:
 3. Add the liquid tag to your layout
 
 ```liquid
-{% hyde_fonts %}
+{% hyde_fonts link %}
 ```
 
 which will render as the following, based on the configuration

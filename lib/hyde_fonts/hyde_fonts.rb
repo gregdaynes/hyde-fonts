@@ -14,6 +14,7 @@ module Jekyll
 
       @tag_name = tag_name
       style, indent = text.strip.split(" ")
+      return if style.nil?
       @style = style.strip
       @indent = indent.to_i || 0
       @tokens = tokens
