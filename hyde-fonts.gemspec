@@ -1,4 +1,4 @@
-require File.expand_path("../lib/hyde-fonts.rb", __FILE__)
+require File.expand_path("./lib/hyde-fonts.rb")
 
 Gem::Specification.new do |s|
   s.name = "hyde-fonts"
