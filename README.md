@@ -9,7 +9,7 @@ Installation
 
 1. Add Hyde Fonts to your Gemfile
 
-`gem 'hyde-fonts', '~> 0.3.3'`
+`gem 'hyde-fonts', '~> 0.3.4'`
 
 2. Add entry to your Jekyll config under plugins
 

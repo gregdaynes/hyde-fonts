@@ -21,7 +21,7 @@ module Jekyll
     end
 
     def render(context)
-      return unless context.registers[:site].config["hyde_fonts"]["enable"] == true
+      return unless context.registers[:site].config.dig("hyde_fonts", "enable") == true
 
       file = context.registers[:site].static_files.find { |file|
         file.is_a?(Hyde::GeneratedCssFile)
@@ -30,7 +30,7 @@ module Jekyll
       if @style == "inline"
         file.file_contents
       elsif @style == "link"
-        "<link href='" + file.relative_path + "' rel='stylesheet'>"
+        "<link href='/" + context.registers[:site].config['baseurl'] + file.path + "' rel='stylesheet'>"
       elsif @style == "decap-config"
         [
           "- label: Hyde-Fonts",
